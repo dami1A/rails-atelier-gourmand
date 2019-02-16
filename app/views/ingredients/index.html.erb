@@ -1,0 +1,19 @@
+<div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path('ingredients_page.jpeg') %>);">
+  <h1>Liste des ingredients!</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @ingredients.each do |ingredient| %>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("ingredient.jpeg") %>);">
+          <div class="card-category">Ingrédient</div>
+          <div class="card-description">
+            <h2><%= ingredient.name %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

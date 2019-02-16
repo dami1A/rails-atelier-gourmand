@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-sm-6 col-md-6 col-md-offset-3">
+    <%= simple_form_for recipe do |f| %>
+      <%= f.input :name %>
+      <%= f.input :prep_time %>
+      <%= f.input :cook_time %>
+      <%= f.input :portions %>
+      <%= f.input :category, placeholder: 'entremet, tarte, gateau, glace, crème ou accompagnement' , collection: Recipe::CATEGORIES %>
+      <%= f.submit class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>

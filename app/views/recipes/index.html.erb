@@ -1,0 +1,25 @@
+<div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path('home.jpeg') %>);">
+  <h1>L'atelier gourmand de Manon</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @recipes.each do |recipe| %>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("ingredient.jpeg") %>);">
+          <div class="card-category"><%= recipe.category %></div>
+          <div class="card-description">
+            <h2><%= recipe.name %></h2>
+            <ul>
+              <li><%= "temps de préparation : #{recipe.prep_time} min" %></li>
+              <li><%= "temps de cuisson : #{recipe.cook_time} min" %></li>
+              <li><%= "pour #{recipe.portions} personne(s)" %></li>
+            </ul>
+          </div>
+          <%= link_to '', new_recipe_dose_path(recipe.id), class: "card-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
