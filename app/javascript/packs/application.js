@@ -8,10 +8,11 @@
 // layout file, like app/views/layouts/application.html.erb
 
 console.log("Hello from app/javascript/packs/application.js!");
+
 import 'bootstrap';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import 'select2/dist/css/select2.css';
-import { initSelect2 } from '../components/select2';
+import { initSelect2 } from '../components/init_select2';
 import { previewImageOnFileSelect } from '../components/photo-preview';
 
 initUpdateNavbarOnScroll();

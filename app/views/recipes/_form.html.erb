@@ -8,7 +8,7 @@
       <%= f.input :category, label: 'Catégorie', error: 'Choisir dans la liste', collection: Recipe::CATEGORIES, input_html:{class: 'select2'} %>
       <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Télécharger une photo' %>
       <%= f.input :photo_cache, as: :hidden %>
-      <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+      <%= cl_image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
       <%= f.button :submit, "Créer cette recette", class: 'btn btn-success' %>
     <% end %>
   </div>

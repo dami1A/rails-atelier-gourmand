@@ -10,6 +10,9 @@ class Recipe < ApplicationRecord
   end
 
   mount_uploader :photo, PhotoUploader
+  validates_presence_of :photo
+  validates_integrity_of :photo
+  validates_processing_of :photo
 
   CATEGORIES = %w(accompagnement crème entremet gateau glace tarte)
   validates :name, uniqueness: true, presence: true
