@@ -5,6 +5,10 @@ class Recipe < ApplicationRecord
 
   default_scope { order(name: :asc) }
 
+  def name=(value)
+    write_attribute(:name, value.downcase)
+  end
+
   mount_uploader :photo, PhotoUploader
 
   CATEGORIES = %w(accompagnement crème entremet gateau glace tarte)

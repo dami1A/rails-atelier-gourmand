@@ -1,4 +1,4 @@
-<div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path('https://res.cloudinary.com/dami1a/image/upload/v1550372687/Atelier%20gourmand/home.jpg') %>);">
+<div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path('https://res.cloudinary.com/dami1a/image/upload/v1550397098/Atelier%20gourmand/home2.jpg') %>);">
   <div class="banner-content">
     <h1>L'atelier gourmand <br/> de Manon</h1>
   </div>
@@ -19,6 +19,11 @@
               <li><%= "pour #{recipe.portions} personne(s)" %></li>
             </ul>
           </div>
+          <a class="card-link" href="#" >
+            <%= link_to '<i class="far fa-trash-alt card-user"></i>'.html_safe, recipe_path(recipe),
+            method: :delete,
+            data: { confirm: "Etes-vous certain de vouloir supprimer cette recette ?" } %>
+          </a>
           <%= link_to '', recipe_path(recipe.id), class: "card-link" %>
         </div>
       </div>

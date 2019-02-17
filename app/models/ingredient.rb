@@ -3,5 +3,9 @@ class Ingredient < ApplicationRecord
 
   default_scope { order(name: :asc) }
 
+  def name=(value)
+    write_attribute(:name, value.downcase)
+  end
+
   validates :name, uniqueness: true, presence: true
 end
