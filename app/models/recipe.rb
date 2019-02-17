@@ -5,6 +5,8 @@ class Recipe < ApplicationRecord
 
   default_scope { order(name: :asc) }
 
+  mount_uploader :photo, PhotoUploader
+
   CATEGORIES = %w(accompagnement crème entremet gateau glace tarte)
   validates :name, uniqueness: true, presence: true
   validates :prep_time, presence: true

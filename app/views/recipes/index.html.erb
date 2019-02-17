@@ -9,7 +9,7 @@
     <% @recipes.each do |recipe| %>
       <div class="col-xs-12 col-sm-4">
         <!-- insert <div class="card"> -->
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("ingredient.jpeg") %>);">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path recipe.photo %>);">
           <div class="card-category"><%= recipe.category %></div>
           <div class="card-description">
             <h2><%= recipe.name %></h2>

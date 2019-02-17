@@ -1,7 +1,12 @@
+<div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path('https://res.cloudinary.com/dami1a/image/upload/c_scale,h_1280/v1550372692/Atelier%20gourmand/recipe_page.jpg') %>);">
+  <h1 class="text-center"><%= @recipe.name %></h1>
+</div>
 <br>
 <br>
 <div class="container">
-  <h1 class="text-center"><%= @recipe.name %></h1>
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4 col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4"><%= image_tag @recipe.photo.url(:thumnail) %></div>
+  </div>
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
       <h2 class="text-center">Ingrédients</h2>

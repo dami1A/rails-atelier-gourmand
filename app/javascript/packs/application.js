@@ -12,6 +12,8 @@ import 'bootstrap';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import 'select2/dist/css/select2.css';
 import { initSelect2 } from '../components/select2';
+import { previewImageOnFileSelect } from '../components/photo-preview';
 
 initUpdateNavbarOnScroll();
 initSelect2();
+previewImageOnFileSelect();
