@@ -3,10 +3,9 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
-  # def show
-  #   @recipe = recipe.find(params[:id])
-  #   @doses = Dose.where(recipe_id: @recipe.id)
-  # end
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
 
   def new
     @recipe = Recipe.new

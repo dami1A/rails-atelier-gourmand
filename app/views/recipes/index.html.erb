@@ -1,5 +1,7 @@
 <div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path('home.jpeg') %>);">
-  <h1>L'atelier gourmand <br/> de Manon</h1>
+  <div class="banner-content">
+    <h1>L'atelier gourmand <br/> de Manon</h1>
+  </div>
 </div>
 
 <div class="container">
@@ -17,7 +19,7 @@
               <li><%= "pour #{recipe.portions} personne(s)" %></li>
             </ul>
           </div>
-          <%= link_to '', new_recipe_dose_path(recipe.id), class: "card-link" %>
+          <%= link_to '', recipe_path(recipe.id), class: "card-link" %>
         </div>
       </div>
     <% end %>

@@ -3,6 +3,8 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :doses
   has_many :instructions, dependent: :destroy
 
+  default_scope { order(name: :asc) }
+
   CATEGORIES = %w(accompagnement crème entremet gateau glace tarte)
   validates :name, uniqueness: true, presence: true
   validates :prep_time, presence: true

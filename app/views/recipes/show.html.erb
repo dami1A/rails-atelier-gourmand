@@ -1,0 +1,40 @@
+<br>
+<br>
+<div class="container">
+  <h1 class="text-center"><%= @recipe.name %></h1>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <h2 class="text-center">Ingrédients</h2>
+      <%= simple_form_for [@recipe, Dose.new] do |f| %>
+        <%= f.input :quantity, label: 'Quantité', placeholder: '5cl', error: 'Indiquer obligatoirement une quantité' %>
+        <%= f.association :ingredient, label: 'Ingrédient', error: 'Choisir dans la liste', input_html:{class: 'select2'} %>
+        <br>
+        <%= f.submit "Ajouter un ingredient", class: 'btn btn-success' %>
+      <% end %>
+      <h3>Liste des ingredients</h3>
+      <ul>
+        <% Dose.where(recipe_id: @recipe.id).each do |dose| %>
+          <li><%= "#{dose.quantity} - #{dose.ingredient.name}   " %><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, dose_path(dose),
+        method: :delete,
+        data: { confirm: "Etes-vous certain de vouloir supprimer cet ingrédient ?" } %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <h2 class="text-center">Instructions</h2>
+      <%= simple_form_for [@recipe, Instruction.new] do |f| %>
+        <%= f.input :step, label: 'Etape', error: "Définir le numéro d'étape (ordre chronologique)", collection: Instruction::STEPS, input_html:{class: 'select2'} %>
+        <%= f.input :description, label: 'Consignes', placeholder: 'Détailler les consignes', error: 'décrire obligatoirement les consignes de cette étape' %>
+        <%= f.submit "Ajouter une instruction", class: 'btn btn-success' %>
+      <% end %>
+      <h3>Liste des instructions</h3>
+      <ul style="list-style-type: none">
+        <% Instruction.where(recipe_id: @recipe.id).each do |instruction| %>
+          <li><%= "#{instruction.step} - #{instruction.description}   " %><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, instruction_path(instruction),
+        method: :delete,
+        data: { confirm: "Etes-vous certain de vouloir supprimer cette instruction ?" } %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
