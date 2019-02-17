@@ -7,7 +7,7 @@
     <% @ingredients.each do |ingredient| %>
       <div class="col-xs-12 col-sm-4">
         <!-- insert <div class="card"> -->
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path("ingredient.jpeg") %>);">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(<%= image_path("ingredient.jpeg") %>);">
           <div class="card-category">Ingrédient</div>
           <div class="card-description">
             <h2><%= ingredient.name %></h2>

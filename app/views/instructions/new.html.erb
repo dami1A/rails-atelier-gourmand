@@ -1,0 +1,21 @@
+<br>
+<br>
+<h1 class="text-center"><%= @recipe.name %></h1>
+<div class="container">
+  <div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+    <%= simple_form_for [@recipe, @instruction] do |f| %>
+      <%= f.input :step, label: 'Etape', error: "Définir le numéro d'étape (ordre chronologique)", collection: Instruction::STEPS, input_html:{class: 'select2'} %>
+      <%= f.input :description, label: 'Consignes', placeholder: 'Détailler les consignes de cette étape', error: 'décrire obligatoirement les consignes de cette étape' %>
+      <%= f.submit "Ajouter une instruction", class: 'btn btn-success' %>
+    <% end %>
+    <h2>Liste des instructions</h2>
+    <ul>
+      <% Instruction.where(recipe_id: @recipe.id).each do |instruction| %>
+        <li><%= "#{instruction.step} - #{instruction.description}   " %><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, instruction_path(instruction),
+      method: :delete,
+      data: { confirm: "Etes-vous certain de vouloir supprimer cette instruction ?" } %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

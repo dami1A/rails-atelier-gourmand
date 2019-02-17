@@ -3,7 +3,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :doses
   has_many :instructions, dependent: :destroy
 
-  CATEGORIES = %w(entremet tarte gateau glace crème accompagnement)
+  CATEGORIES = %w(accompagnement crème entremet gateau glace tarte)
   validates :name, uniqueness: true, presence: true
   validates :prep_time, presence: true
   validates :cook_time, presence: true

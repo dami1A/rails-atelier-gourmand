@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-sm-6 col-md-6 col-md-offset-3">
     <%= simple_form_for recipe do |f| %>
-      <%= f.input :name %>
-      <%= f.input :prep_time %>
-      <%= f.input :cook_time %>
-      <%= f.input :portions %>
-      <%= f.input :category, placeholder: 'entremet, tarte, gateau, glace, crème ou accompagnement' , collection: Recipe::CATEGORIES %>
+      <%= f.input :name, label: 'Nom de la recette', placeholder: 'Tarte aux pommes', error: 'Donner obligatoirement un nom à la recette' %>
+      <%= f.input :prep_time, label: 'Temps de préparation (min)', placeholder: '25', error: 'Indiquer obligatoirement un temps' %>
+      <%= f.input :cook_time, label: 'Temps de cuisson (min)', placeholder: '30', error: 'Indiquer obligatoirement un temps' %>
+      <%= f.input :portions, label: 'Nombre de portions (pers.)', placeholder: '8', error: 'Indiquer obligatoirement un nombre' %>
+      <%= f.input :category, label: 'Catégorie', error: 'Choisir dans la liste', collection: Recipe::CATEGORIES, input_html:{class: 'select2'} %>
       <%= f.submit class: 'btn btn-success' %>
     <% end %>
   </div>

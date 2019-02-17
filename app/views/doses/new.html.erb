@@ -1,0 +1,21 @@
+<br>
+<br>
+<h1 class="text-center"><%= @recipe.name %></h1>
+<div class="container">
+  <div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
+    <%= simple_form_for [@recipe, @dose] do |f| %>
+      <%= f.input :quantity, label: 'Quantité', placeholder: '5cl', error: 'Indiquer obligatoirement une quantité' %>
+      <%= f.association :ingredient, label: 'Ingrédient', error: 'Choisir dans la liste', input_html:{class: 'select2'} %>
+      <%= f.submit "Ajouter un ingredient", class: 'btn btn-success' %>
+    <% end %>
+    <h2>Liste des ingredients</h2>
+    <ul>
+      <% Dose.where(recipe_id: @recipe.id).each do |dose| %>
+        <li><%= "#{dose.quantity} - #{dose.ingredient.name}   " %><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, dose_path(dose),
+      method: :delete,
+      data: { confirm: "Etes-vous certain de vouloir supprimer cet ingrédient ?" } %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
