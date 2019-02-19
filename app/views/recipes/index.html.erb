@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row">
     <% @recipes.each do |recipe| %>
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-10 col-md-4">
         <!-- insert <div class="card"> -->
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path recipe.photo %>);">
           <div class="card-category"><%= recipe.category %></div>
@@ -19,12 +19,12 @@
               <li><%= "pour #{recipe.portions} personne(s)" %></li>
             </ul>
           </div>
-          <a class="card-link" href="#" >
+          <% if user_signed_in? %>
             <%= link_to '<i class="far fa-trash-alt card-user"></i>'.html_safe, recipe_path(recipe),
-            method: :delete,
-            data: { confirm: "Etes-vous certain de vouloir supprimer cette recette ?" } %>
-          </a>
-          <%= link_to '', recipe_path(recipe.id), class: "card-link" %>
+              method: :delete,
+              data: { confirm: "Etes-vous certain de vouloir supprimer cette recette ?" } %>
+            <%= link_to '', recipe_path(recipe.id), class: "card-link" %>
+          <% end %>
         </div>
       </div>
     <% end %>

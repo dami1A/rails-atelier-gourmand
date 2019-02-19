@@ -5,10 +5,10 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-xs-4 col-xs-offset-4 col-sm-6 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4"><%= image_tag @recipe.photo.url(:thumnail) %></div>
+    <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4"><%= image_tag @recipe.photo.url(:thumnail) %></div>
   </div>
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-1 col-lg-4 col-lg-offset-1">
       <h2 class="text-center">Ingrédients</h2>
       <%= simple_form_for [@recipe, Dose.new] do |f| %>
         <%= f.input :quantity, label: 'Quantité', placeholder: '5cl', error: 'Indiquer obligatoirement une quantité' %>
@@ -25,7 +25,7 @@
         <% end %>
       </ul>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-1 col-lg-4 col-lg-offset-1">
       <h2 class="text-center">Instructions</h2>
       <%= simple_form_for [@recipe, Instruction.new] do |f| %>
         <%= f.input :step, label: 'Etape', error: "Définir le numéro d'étape (ordre chronologique)", collection: Instruction::STEPS, input_html:{class: 'select2'} %>

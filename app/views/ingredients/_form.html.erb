@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-6 col-md-6 col-md-offset-3">
     <%= simple_form_for ingredient do |f| %>
-      <%= f.input :name, label: "Nom de l'ingrédient", placeholder: 'Sucre', error: "Donner obligatoirement un nouveau nom d'ingrédient" %>
+      <%= f.input :name, label: "Nom de l'ingrédient", placeholder: 'Sucre', message: "Donner obligatoirement un nouveau nom d'ingrédient" %>
       <%= f.button :submit, "Créer cet ingrédient", class: 'btn btn-primary' %>
     <% end %>
   </div>
