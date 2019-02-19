@@ -7,10 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts 'Deleting datas...'
-Dose.destroy_all
-Ingredient.destroy_all
-Instruction.destroy_all
-Recipe.destroy_all
+  User.destroy_all
+# Dose.destroy_all
+# Ingredient.destroy_all
+# Instruction.destroy_all
+# Recipe.destroy_all
 puts 'Datas deleted'
 
 puts 'Creating ingredients...'
@@ -82,4 +83,9 @@ Ingredient.create(name: "jaune d'oeuf")
 Ingredient.create(name: "blanc d'oeuf")
 
 puts "#{Ingredient.count} ingredients created"
+
+User.create(email: "manon.alzbeta@icloud.com", password:"Manon2008", password_confirmation:"Manon2008")
+User.create(email: "mido.arnaud@free.fr", password:"Mido4748", password_confirmation:"Mido4748")
+
+puts "#{User.count} users created"
 puts 'Finished!'
