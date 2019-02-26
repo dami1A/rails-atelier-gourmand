@@ -85,7 +85,7 @@ Ingredient.create(name: "blanc d'oeuf")
 puts "#{Ingredient.count} ingredients created"
 
 User.create(email: "manon@atelier.com", password:"Manon", password_confirmation:"Manon")
-User.create(email: "mido@atelier.com", password:"Dominique", password_confirmation:"Mido")
+User.create(email: "mido@atelier.com", password:"Dominique", password_confirmation:"Dominique")
 
 puts "#{User.count} users created"
 puts 'Finished!'
